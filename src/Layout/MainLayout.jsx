@@ -11,7 +11,10 @@ const MainLayout = () => {
             <div className='max-w-[1256px] mx-auto'>
             <Outlet></Outlet>
             </div>
-            <Footer></Footer>
+            <div className='bg-[#0F172A]'>
+                <Footer></Footer>
+            </div>
+
         </div>
     );
 };
