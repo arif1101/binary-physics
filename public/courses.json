@@ -1,0 +1,69 @@
+[
+    {
+      "id": 1,
+      "image": "/thum-1.jpg",
+      "rating": 4,
+      "title": "Full-Stack Web Development",
+      "details": "Learn HTML, CSS, JavaScript, React, Node.js, and MongoDB from scratch. sdf sadaf dsaf asdfadsf sadfsd afsdaf sdfsdf sdfsad",
+      "videos": 120,
+      "hours": 40,
+      "lessons": 20,
+      "fees": 149.99
+    },
+    {
+      "id": 2,
+      "image": "/thum-2.jpg",
+      "rating": 5,
+      "title": "Data Science & Machine Learning",
+      "details": "Master Python, Pandas, NumPy, Scikit-Learn, and deep learning concepts.",
+      "videos": 95,
+      "hours": 35,
+      "lessons": 18,
+      "fees": 199.99
+    },
+    {
+      "id": 3,
+      "image": "/thum-3.jpg",
+      "rating": 3,
+      "title": "UI/UX Design Masterclass",
+      "details": "Create stunning user interfaces with Figma, Adobe XD, and design principles.",
+      "videos": 80,
+      "hours": 25,
+      "lessons": 15,
+      "fees": 129.99
+    },
+    {
+      "id": 4,
+      "image": "/thum-3.jpg",
+      "rating": 4,
+      "title": "Cybersecurity Fundamentals",
+      "details": "Learn ethical hacking, penetration testing, and security best practices.",
+      "videos": 75,
+      "hours": 30,
+      "lessons": 12,
+      "fees": 179.99
+    },
+    {
+      "id": 5,
+      "image": "/thum-1.jpg",
+      "rating": 2,
+      "title": "Blockchain & Cryptocurrency",
+      "details": "Understand blockchain technology, smart contracts, and DeFi applications.",
+      "videos": 100,
+      "hours": 45,
+      "lessons": 22,
+      "fees": 249.99
+    },
+    {
+      "id": 6,
+      "image": "/thum-2.jpg",
+      "rating": 5,
+      "title": "Artificial Intelligence with Python",
+      "details": "Build AI models, neural networks, and NLP applications using Python.",
+      "videos": 110,
+      "hours": 38,
+      "lessons": 19,
+      "fees": 219.99
+    }
+  ]
+  

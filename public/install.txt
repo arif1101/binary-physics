@@ -1,0 +1,6 @@
+npm install react-icons --save
+
+https://lms.factoryze.tech/demotopics/sales-marketing.svg
+https://lms.factoryze.tech/demotopics/business-analysis.svg
+https://lms.factoryze.tech/demotopics/creativity.svg
+https://lms.factoryze.tech/demotopics/data-science.svg

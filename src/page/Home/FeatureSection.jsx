@@ -1,0 +1,89 @@
+import React from "react";
+import { FaHeadset, FaEnvelope, FaCalendarCheck } from "react-icons/fa";
+
+const FeatureSection = () => {
+  return (
+    <div className="flex mt-[100px] justify-between">
+        <div className="w-1/2 px-[40px]">
+        <div className="bg-[url('https://lms.factoryze.tech/passion/home-1-left-img-resize.jpg')] w-full h-full rounded-lg">
+        {/* 2nd cointainer */}
+        <div className="w-[150px] h-[150px] rounded-full flex flex-col items-center justify-center bg-sky-500 absolute right-[920px] ">
+            <h1 className="text-4xl font-bold text-white">900K</h1>
+            <p className="text-lg text-white">Total Student</p>
+        </div>
+        {/* 3rd container  */}
+        <div className="max-w-[456px] flex flex-col  gap-4 bg-white p-4 rounded-2xl absolute">
+            <div className="flex justify-between">
+                {/* First Image */}
+                <div className="relative h-[200px] border rounded-xl">
+                    <img
+                    src="/men-1.jpg"
+                    alt="Smiling Woman"
+                    className="w-[200px] h-full object-cover rounded-xl"
+                    />
+                </div>
+
+                {/* Second Image with Video Icons */}
+                <div className="relative w-[200px] h-[200px]">
+                    <video 
+                    src="/meeting.mp4" 
+                    className="w-full h-full object-cover rounded-xl"
+                    autoPlay
+                    loop
+                    playsInline
+                    ></video>
+                </div>
+            </div>
+
+            {/* Discussion Info */}
+            <div className="flex justify-between px-1">
+                <div>
+                <h3 className="font-bold text-lg">Online Discussion</h3>
+                <p className="text-gray-500 text-sm">Amet purus gravida quis blandit</p>
+                </div>
+                <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+                End Discussion →
+                </button>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+        <div className="w-1/2 max-w-[568.21px]">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 md:text-4xl">
+                Igniting A <span className="text-sky-500">Passion That</span> Will Propel You Forward
+            </h2>
+            <p className="text-gray-600 mb-6">
+                Integer venenatis consequat elit. Curabitur eget laoreet nibh. Cras euismod, tellus vitae luctus ultrices,
+                lacus erat sagittis nulla, id ornare velit ligula congue ex. Etiam rhoncus urna ut pulvinar euismod.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6 mb-6">
+                <div className="flex flex-col gap-4">
+                <FaHeadset size={30} className="text-sky-500 mb-3" />
+                <h3 className="text-base font-bold text-sky-500">24/7 Live Support</h3>
+                <p className="text-gray-600 text-sm mt-1">Amet porttitor eget dolor morbi</p>
+                </div>
+
+                <div className="flex flex-col gap-4">
+                <FaEnvelope size={30} className="text-sky-500 mb-3"/>
+                <h3 className="text-base font-bold text-sky-500">Email Assistance</h3>
+                <p className="text-gray-600 mt-1">Facilisis leo vel fringilla est eleifend.</p>
+                </div>
+                <div className="flex flex-col gap-4">
+                <FaCalendarCheck size={30} className="text-sky-500 mb-3" />
+                <h3 className="text-base font-bold text-sky-500">Book Your Schedule</h3>
+                <p className="text-gray-600 mt-1">Egestas fringilla phasellus faucibus.</p>
+                </div>
+            </div>
+            <button className="h-[48px] bg-sky-500 text-white py-3 px-6 rounded-full text-lg font-semibold shadow-lg hover:bg-sky-600 transition duration-300">
+                Start 30-Day Free Trial →
+            </button>
+            <p className="mt-4 text-black font-semibold">
+                Or <span className="text-lg">$24,525/year</span> with 7-day money-back guarantee
+            </p>
+        </div>
+    </div>
+  );
+};
+
+export default FeatureSection;
