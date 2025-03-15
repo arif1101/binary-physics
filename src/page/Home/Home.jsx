@@ -9,6 +9,7 @@ import Mentors from './Mentors';
 import LearningResources from './LearningResources';
 import Testimonials from './Testimonials';
 import FeatureSection from './FeatureSection';
+import PopularBooks from './PopularBooks';
 
 
 const Home = () => {
@@ -68,6 +69,8 @@ const Home = () => {
             <Mentors></Mentors>
 
             <FeatureSection></FeatureSection>
+
+            <PopularBooks></PopularBooks>
 
             <LearningResources></LearningResources>
 

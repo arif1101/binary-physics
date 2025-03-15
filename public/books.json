@@ -1,0 +1,93 @@
+[
+    {
+      "bookImage": "/books/book-1.jpg",
+      "title": "The Great Adventure",
+      "price": 19.99,
+      "copy": "Hardcopy",
+      "rating": 3,
+      "author": "John Doe",
+      "publishedDate": "2022-05-15",
+      "isbn": "978-3-16-148410-0"
+    },
+    {
+      "bookImage": "/books/book-2.jpg",
+      "title": "Learning JavaScript",
+      "price": 29.99,
+      "copy": "Hardcopy",
+      "rating": 3,
+      "author": "Jane Smith",
+      "publishedDate": "2021-10-20",
+      "isbn": "978-1-23-456789-0"
+    },
+    {
+      "bookImage": "/books/book-3.jpg",
+      "title": "The World of AI",
+      "price": 34.99,
+      "copy": "Hardcopy",
+      "rating": 3,
+      "author": "Alan Turing",
+      "publishedDate": "2023-08-05",
+      "isbn": "978-9-87-654321-0"
+    },
+    {
+      "bookImage": "/books/book-4.jpg",
+      "title": "Exploring Python",
+      "price": 25.99,
+      "copy": "Hardcopy",
+      "rating": 5,
+      "author": "Emily White",
+      "publishedDate": "2020-11-12",
+      "isbn": "978-0-12-345678-9"
+    },
+    {
+      "bookImage": "/books/book-5.jpg",
+      "title": "Mastering React",
+      "price": 39.99,
+      "copy": "Hardcopy",
+      "rating": 5,
+      "author": "Michael Brown",
+      "publishedDate": "2022-06-30",
+      "isbn": "978-3-16-123456-7"
+    },
+    {
+      "bookImage": "/books/book-1.jpg",
+      "title": "Data Science Essentials",
+      "price": 45.99,
+      "copy": "Hardcopy",
+      "rating": 5,
+      "author": "Sarah Green",
+      "publishedDate": "2021-09-25",
+      "isbn": "978-1-24-567890-3"
+    },
+    {
+      "bookImage": "/books/book-3.jpg",
+      "title": "The Future of Blockchain",
+      "price": 49.99,
+      "copy": "Hardcopy",
+      "rating": 4,
+      "author": "James Black",
+      "publishedDate": "2023-03-14",
+      "isbn": "978-0-98-765432-1"
+    },
+    {
+      "bookImage": "/books/book-5.jpg",
+      "title": "Cloud Computing Basics",
+      "price": 32.99,
+      "copy": "Hardcopy",
+      "rating": 4,
+      "author": "Linda Adams",
+      "publishedDate": "2020-07-22",
+      "isbn": "978-5-67-890123-4"
+    },
+    {
+      "bookImage": "/books/book-2.jpg",
+      "title": "Introduction to Machine Learning",
+      "price": 29.99,
+      "copy": "Hardcopy",
+      "rating": 4,
+      "author": "David Wilson",
+      "publishedDate": "2022-01-10",
+      "isbn": "978-2-34-567890-6"
+    }
+  ]
+  
