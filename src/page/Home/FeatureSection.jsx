@@ -5,49 +5,61 @@ const FeatureSection = () => {
   return (
     <div className="flex mt-[100px] justify-between">
         <div className="w-1/2 px-[40px]">
-        <div className="bg-[url('https://lms.factoryze.tech/passion/home-1-left-img-resize.jpg')] w-full h-full rounded-lg">
-        {/* 2nd cointainer */}
-        <div className="w-[150px] h-[150px] rounded-full flex flex-col items-center justify-center bg-sky-500 absolute right-[920px] ">
-            <h1 className="text-4xl font-bold text-white">900K</h1>
-            <p className="text-lg text-white">Total Student</p>
-        </div>
-        {/* 3rd container  */}
-        <div className="max-w-[456px] flex flex-col  gap-4 bg-white p-4 rounded-2xl absolute">
-            <div className="flex justify-between">
-                {/* First Image */}
-                <div className="relative h-[200px] border rounded-xl">
-                    <img
-                    src="/men-1.jpg"
-                    alt="Smiling Woman"
-                    className="w-[200px] h-full object-cover rounded-xl"
-                    />
-                </div>
+  <div className="relative bg-[url('https://lms.factoryze.tech/passion/home-1-left-img-resize.jpg')] w-full h-[500px] rounded-lg bg-cover bg-center">
+    
+    {/* 1st Container - Positioned Slightly Outside Right */}
+    <div
+      className="absolute top-[-50px] right-[-50px] w-[150px] h-[150px] rounded-full flex flex-col items-center justify-center bg-sky-500 shadow-lg"
+       // Move more to the right
+    >
+      <h1 className="text-4xl font-bold text-white">900K</h1>
+      <p className="text-lg text-white">Total Student</p>
+    </div>
 
-                {/* Second Image with Video Icons */}
-                <div className="relative w-[200px] h-[200px]">
-                    <video 
-                    src="/meeting.mp4" 
-                    className="w-full h-full object-cover rounded-xl"
-                    autoPlay
-                    loop
-                    playsInline
-                    ></video>
-                </div>
-            </div>
+    {/* 2nd Container - Positioned Slightly Outside Right */}
+    <div
+      className="absolute max-w-[456px] flex flex-col gap-4 bg-white p-4 rounded-2xl shadow-lg right-[-60px] bottom-[-40px]"
+    //   style={{ right: '-40px' }} // Move more to the right
+    >
+      <div className="flex justify-between">
+        
+        {/* First Image */}
+        <div className="relative h-[200px] border rounded-xl overflow-hidden">
+          <img
+            src="/men-1.jpg"
+            alt="Smiling Man"
+            className="w-[200px] h-full object-cover rounded-xl"
+          />
+        </div>
 
-            {/* Discussion Info */}
-            <div className="flex justify-between px-1">
-                <div>
-                <h3 className="font-bold text-lg">Online Discussion</h3>
-                <p className="text-gray-500 text-sm">Amet purus gravida quis blandit</p>
-                </div>
-                <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2">
-                End Discussion →
-                </button>
-            </div>
+        {/* Second Image with Video Icons */}
+        <div className="relative w-[200px] h-[200px]">
+          <video 
+            src="/meeting.mp4" 
+            className="w-full h-full object-cover rounded-xl"
+            autoPlay
+            loop
+            playsInline
+          ></video>
         </div>
+      </div>
+
+      {/* Discussion Info */}
+      <div className="flex justify-between px-1">
+        <div>
+          <h3 className="font-bold text-lg">Online Discussion</h3>
+          <p className="text-gray-500 text-sm">Amet purus gravida quis blandit</p>
         </div>
-        </div>
+        <button className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-700 transition">
+          End Discussion →
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
         
         <div className="w-1/2 max-w-[568.21px]">
             <h2 className="text-3xl font-bold text-gray-900 mb-4 md:text-4xl">
