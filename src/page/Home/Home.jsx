@@ -35,28 +35,46 @@ const Home = () => {
                     </div>
                 </div>
                 {/* video section  */}
-                <div className="flex max-w-[618px] gap-[40px]">
-                    <video 
-                        className="rounded-b-full w-[289px] object-cover max-h-[426px]" 
-                        src="/hero2.mp4" 
-                        autoPlay
-                        loop
-                        muted 
-                        playsInline 
-                        disablePictureInPicture 
-                        onContextMenu={(e) => e.preventDefault()} 
-                    ></video>
-                    <video 
-                        className="rounded-t-full w-[289px] object-cover max-h-[426px]" 
-                        src="/hero1.mp4" 
-                        autoPlay
-                        loop
-                        muted 
-                        playsInline 
-                        disablePictureInPicture 
-                        onContextMenu={(e) => e.preventDefault()} 
-                    ></video>
+                <div className="relative flex max-w-[618px] gap-[40px]">
+                {/* First Video */}
+                <video 
+                    className="rounded-b-full w-[289px] object-cover max-h-[426px] z-10" 
+                    src="/hero2.mp4" 
+                    autoPlay
+                    loop
+                    muted 
+                    playsInline 
+                    disablePictureInPicture 
+                    onContextMenu={(e) => e.preventDefault()} 
+                ></video>
+
+                {/* Second Video */}
+                <video 
+                    className="rounded-t-full w-[289px] object-cover max-h-[426px] z-10" 
+                    src="/hero1.mp4" 
+                    autoPlay
+                    loop
+                    muted 
+                    playsInline 
+                    disablePictureInPicture 
+                    onContextMenu={(e) => e.preventDefault()} 
+                ></video>
+
+                {/* First SVG - Positioned Top Right */}
+                <img 
+                    src="/hero-spinner2.svg" 
+                    alt="Top Right SVG"
+                    className="absolute top-[-100px] right-[-100px] w-[300px] h-[300px] object-cover animate-spin duration-100"
+                />
+
+                {/* Second SVG - Positioned Bottom Left */}
+                <img 
+                    src="/hero-spinner1.svg" 
+                    alt="Bottom Left SVG" 
+                    className="absolute bottom-[-100px] left-[-100px] w-[300px] h-[300px] object-cover animate-pulse"
+                />
                 </div>
+
             </div>
             {/* end hero section  */}
 
