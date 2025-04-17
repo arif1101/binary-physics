@@ -30,7 +30,8 @@ const Courses = () => {
                    bg-gradient-to-r from-white to-sky-100 
                    hover:from-sky-100 hover:to-sky-300
                    transition duration-[1s,60s] ease-in-out 
-                   text-gray-800 font-semibold"
+                   text-gray-800 font-semibold
+                   "
                 >
                   {category}
                 </button>

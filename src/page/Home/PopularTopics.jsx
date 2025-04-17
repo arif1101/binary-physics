@@ -55,7 +55,7 @@ const PopularTopics = () => {
       <div className="flex gap-6 mx-auto">
         {topics.map((topic) => (
           <div key={topic.id} className="w-[230px] h-[314px] flex flex-col gap-4">
-            <div className="p-[25px] rounded-lg shadow border border-sky-200 hover:border-none flex flex-col items-center text-center h-[261px] w-full relative group transition-all duration-500 hover:justify-center gap-8 hover:gap-8">
+            <div className="p-[25px] bg-white rounded-lg shadow border border-sky-200 hover:border-none flex flex-col items-center text-center h-[261px] w-full relative group transition-all duration-500 hover:justify-center gap-8 hover:gap-8">
               
               {/* Image with slower scaling effect */}
               <img
