@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import AuthContext from '../../context/AuthContext';
 
 const Login = () => {
 
+    const {logIn} = useContext(AuthContext)
+    const navigate = useNavigate()
     const {register, handleSubmit,reset} = useForm()
     const onSubmit = (data) => {
         console.log(data)
+        const email = data.email
+        const password = data.password
+        logIn(email, password)
+        .then((result) => {
+            console.log(result.user)
+            navigate('/')
+        })
+        .catch(() => {
+
+        })
         reset()
     }
 
@@ -48,7 +61,7 @@ const Login = () => {
                 </button>
                 <button
                 type="button"
-                className="flex items-center justify-center gap-2 border border-gray-300 py-2 rounded hover:bg-gray-100"
+                className="flex items-center justify-center gap-2 border border-gray-300 py-2 rounded hover:bg-gray-100 dark:hover:bg-slate-900"
                 >
                 <img src="/google.png" alt="Google" className="w-5 h-5" />
                 <span>Login with Google</span>

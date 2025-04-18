@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import AuthContext from '../../context/AuthContext';
 
 const Register = () => {
+    const {createUser, updateUserProfile} = useContext(AuthContext);
+    const navigate = useNavigate()
     const {register, handleSubmit,reset} = useForm()
     const onSubmit = (data) => {
-        console.log(data)
+        // console.log(data)
+        const name = data.name
+        const email = data.email
+        const password = data.password
+        createUser(email,password)
+        .then(result => {
+            console.log(result.user)
+            updateUserProfile({displayName: name})
+            .then(()=> {
+                navigate('/')
+            })
+            .catch(() => {
+                
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
         reset()
     }
+
+    
+    
     return (
         <div className='flex'>
             <div className='w-6/12'>

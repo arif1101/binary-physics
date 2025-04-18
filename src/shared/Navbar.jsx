@@ -1,10 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { MdKeyboardArrowRight } from "react-icons/md";
+import AuthContext from '../context/AuthContext';
 
 const Navbar = () => {
-
     const [theme, setTheme] = useState("light")
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogout = () => {
+      logOut()
+      .then(()=> {
+
+      })
+      .catch(() => {
+        
+      })
+    }
 
     // theme contro 
     useEffect (() => {
@@ -53,12 +64,44 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end flex gap-[16px]">
-            <Link to='/login'>
-            <div className="w-[84.74px] h-[32px] bg-sky-500 flex hover:bg-sky-600 cursor-pointer text-white font-medium items-center justify-center rounded-full pl-2 ">
-            <p>Login</p>
-            <MdKeyboardArrowRight className='text-xl' />
+          {
+            user ? <>
+                      {/* start profile */}
+          <div className="flex gap-2">
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li><a>Settings</a></li>
+                <li><NavLink onClick={handleLogout}>Logout</NavLink></li>
+              </ul>
+            </div>
           </div>
+          {/* end profile  */}
+            </> : <>
+            <Link to='/login'>
+              <div className="w-[84.74px] h-[32px] bg-sky-500 flex hover:bg-sky-600 cursor-pointer text-white font-medium items-center justify-center rounded-full pl-2 ">
+                <p>Login</p>
+                <MdKeyboardArrowRight className='text-xl' />
+              </div>
             </Link>
+            </>
+          }
+          
+
           <label className="swap swap-rotate  rounded-full p-1">
             {/* This hidden checkbox controls the theme */}
             <input 
