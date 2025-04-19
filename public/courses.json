@@ -1,69 +1,413 @@
 [
-    {
-      "id": 1,
-      "image": "/thum-1.jpg",
-      "rating": 4,
-      "title": "Full-Stack Web Development",
-      "details": "Learn HTML, CSS, JavaScript, React, Node.js, and MongoDB from scratch. sdf sadaf dsaf asdfadsf sadfsd afsdaf sdfsdf sdfsad",
-      "videos": 120,
-      "hours": 40,
-      "lessons": 20,
-      "fees": 149.99
-    },
-    {
-      "id": 2,
-      "image": "/thum-2.jpg",
-      "rating": 5,
-      "title": "Data Science & Machine Learning",
-      "details": "Master Python, Pandas, NumPy, Scikit-Learn, and deep learning concepts.",
-      "videos": 95,
-      "hours": 35,
-      "lessons": 18,
-      "fees": 199.99
-    },
-    {
-      "id": 3,
-      "image": "/thum-3.jpg",
-      "rating": 3,
-      "title": "UI/UX Design Masterclass",
-      "details": "Create stunning user interfaces with Figma, Adobe XD, and design principles.",
-      "videos": 80,
-      "hours": 25,
-      "lessons": 15,
-      "fees": 129.99
-    },
-    {
-      "id": 4,
-      "image": "/thum-3.jpg",
-      "rating": 4,
-      "title": "Cybersecurity Fundamentals",
-      "details": "Learn ethical hacking, penetration testing, and security best practices.",
-      "videos": 75,
-      "hours": 30,
-      "lessons": 12,
-      "fees": 179.99
-    },
-    {
-      "id": 5,
-      "image": "/thum-1.jpg",
-      "rating": 2,
-      "title": "Blockchain & Cryptocurrency",
-      "details": "Understand blockchain technology, smart contracts, and DeFi applications.",
-      "videos": 100,
-      "hours": 45,
-      "lessons": 22,
-      "fees": 249.99
-    },
-    {
-      "id": 6,
-      "image": "/thum-2.jpg",
-      "rating": 5,
-      "title": "Artificial Intelligence with Python",
-      "details": "Build AI models, neural networks, and NLP applications using Python.",
-      "videos": 110,
-      "hours": 38,
-      "lessons": 19,
-      "fees": 219.99
-    }
-  ]
-  
+  {
+    "id": 1,
+    "thumbnail": "/thum-1.jpg",
+    "title": "Fundamentals of Physics",
+    "rating": 4.8,
+    "instructor": "Dr. John Smith",
+    "videos": 40,
+    "hours": 12,
+    "lessons": 20,
+    "lectures": 15,
+    "fees": 49.99,
+    "level": "Beginner",
+    "category": "Academic",
+    "subject": "Physics",
+    "language": "English",
+    "class": "11-12",
+    "description": "Learn the core concepts of physics with practical examples and experiments.",
+    "what_you_learn": [
+      "Understand basic physics concepts",
+      "Apply theories to real-life problems",
+      "Prepare for university admission exams"
+    ],
+    "requirements": [
+      "Basic math skills",
+      "Interest in science",
+      "Notebook and calculator"
+    ],
+    "includes": [
+      "12h video lectures",
+      "Downloadable resources",
+      "Certificate of completion",
+      "10 quizzes"
+    ],
+    "popular": false
+  },
+  {
+    "id": 2,
+    "thumbnail": "/thum-1.jpg",
+    "title": "Mastering Algorithms",
+    "rating": 4.7,
+    "instructor": "Prof. Lisa Ray",
+    "videos": 55,
+    "hours": 18,
+    "lessons": 30,
+    "lectures": 25,
+    "fees": 79.99,
+    "level": "Intermediate",
+    "category": "Technology",
+    "subject": "Algorithm",
+    "language": "Bangla",
+    "class": "Honors",
+    "description": "Deep dive into algorithmic thinking and problem solving for coding interviews.",
+    "what_you_learn": [
+      "Learn basic to advanced algorithms",
+      "Problem-solving techniques",
+      "Prepare for tech interviews"
+    ],
+    "requirements": [
+      "Basic programming knowledge",
+      "Computer with internet",
+      "Interest in problem-solving"
+    ],
+    "includes": [
+      "18h video lectures",
+      "10 real-world projects",
+      "Certificate of excellence",
+      "Interview preparation materials"
+    ],
+    "popular": true
+  },
+  {
+    "id": 3,
+    "thumbnail": "/thum-1.jpg",
+    "title": "Business Fundamentals",
+    "rating": 4.5,
+    "instructor": "Mr. Adam Khan",
+    "videos": 30,
+    "hours": 8,
+    "lessons": 15,
+    "lectures": 10,
+    "fees": 39.99,
+    "level": "Beginner",
+    "category": "Business",
+    "subject": "Business",
+    "language": "English",
+    "class": "Honors",
+    "description": "Kickstart your business knowledge with key concepts and real-world cases.",
+    "what_you_learn": [
+      "Understand basic business principles",
+      "Develop entrepreneurial skills",
+      "Gain management insights"
+    ],
+    "requirements": [
+      "Willingness to learn",
+      "Notebook for taking notes"
+    ],
+    "includes": [
+      "8h video content",
+      "Case studies",
+      "Certificate of completion",
+      "Access to private community group"
+    ],
+    "popular": false
+  },
+  {
+    "id": 4,
+    "thumbnail": "/thum-1.jpg",
+    "title": "Introduction to Chemistry",
+    "rating": 4.6,
+    "instructor": "Dr. Sara Ahmed",
+    "videos": 35,
+    "hours": 10,
+    "lessons": 18,
+    "lectures": 12,
+    "fees": 45.00,
+    "level": "Beginner",
+    "category": "Academic",
+    "subject": "Chemistry",
+    "language": "Bangla",
+    "class": "11-12",
+    "description": "Understand atoms, molecules, and chemical reactions from scratch.",
+    "what_you_learn": [
+      "Learn chemical formulas",
+      "Balance chemical equations",
+      "Explore periodic table"
+    ],
+    "requirements": [
+      "Basic math",
+      "Passion for chemistry",
+      "Laboratory kit (optional)"
+    ],
+    "includes": [
+      "10h video lectures",
+      "Lab experiment demos",
+      "Assignments and quizzes",
+      "Certificate of completion"
+    ],
+    "popular": true
+  },
+  {
+    "id": 5,
+    "thumbnail": "/thum-2.jpg",
+    "title": "Data Structure Essentials",
+    "rating": 4.9,
+    "instructor": "Engr. Tanvir Hasan",
+    "videos": 60,
+    "hours": 20,
+    "lessons": 25,
+    "lectures": 20,
+    "fees": 85.00,
+    "level": "Advanced",
+    "category": "Technology",
+    "subject": "Data Structure",
+    "language": "English",
+    "class": "Honors",
+    "description": "Master all important data structures for efficient coding.",
+    "what_you_learn": [
+      "Linked Lists, Trees, Graphs",
+      "Sorting and Searching algorithms",
+      "Optimize code performance"
+    ],
+    "requirements": [
+      "Programming in C or Java",
+      "Laptop with IDE installed"
+    ],
+    "includes": [
+      "20h deep explanation",
+      "Code examples",
+      "Interview practice questions",
+      "Certificate"
+    ],
+    "popular": true
+  },
+  {
+    "id": 6,
+    "thumbnail": "/thum-2.jpg",
+    "title": "English Speaking for Beginners",
+    "rating": 4.4,
+    "instructor": "Ms. Laura White",
+    "videos": 25,
+    "hours": 5,
+    "lessons": 12,
+    "lectures": 8,
+    "fees": 25.00,
+    "level": "Beginner",
+    "category": "Academic",
+    "subject": "English",
+    "language": "Bangla",
+    "class": "8",
+    "description": "Improve your English speaking skill with simple methods.",
+    "what_you_learn": [
+      "Speak English fluently",
+      "Daily conversations",
+      "Improve pronunciation"
+    ],
+    "requirements": [
+      "Basic understanding of English alphabets",
+      "Regular practice"
+    ],
+    "includes": [
+      "5h video lectures",
+      "Conversation practice sheets",
+      "Roleplay activities",
+      "Certificate"
+    ],
+    "popular": false
+  },
+  {
+    "id": 7,
+    "thumbnail": "/thum-2.jpg",
+    "title": "Higher Mathematics Basics",
+    "rating": 4,
+    "instructor": "Dr. Sayeed Hasan",
+    "videos": 50,
+    "hours": 15,
+    "lessons": 22,
+    "lectures": 17,
+    "fees": 55.00,
+    "level": "Intermediate",
+    "category": "Academic",
+    "subject": "Mathematics",
+    "language": "English",
+    "class": "11-12",
+    "description": "Learn higher math topics essential for university admission.",
+    "what_you_learn": [
+      "Functions and Graphs",
+      "Differentiation and Integration",
+      "Trigonometry basics"
+    ],
+    "requirements": [
+      "Basic Algebra",
+      "Scientific Calculator"
+    ],
+    "includes": [
+      "15h video lectures",
+      "Practice problems",
+      "Assignments and Tests",
+      "Certificate"
+    ],
+    "popular": false
+  },
+  {
+    "id": 8,
+    "thumbnail": "/thum-2.jpg",
+    "title": "Python Programming for Beginners",
+    "rating": 5.0,
+    "instructor": "Md. Salman Kabir",
+    "videos": 65,
+    "hours": 22,
+    "lessons": 28,
+    "lectures": 20,
+    "fees": 95.00,
+    "level": "Beginner",
+    "category": "Technology",
+    "subject": "Programming",
+    "language": "Bangla",
+    "class": "Honors",
+    "description": "Learn Python from scratch and become ready for your first project.",
+    "what_you_learn": [
+      "Python syntax",
+      "Problem-solving with Python",
+      "Build mini projects"
+    ],
+    "requirements": [
+      "Basic computer knowledge",
+      "PC or Laptop"
+    ],
+    "includes": [
+      "22h detailed videos",
+      "20 mini projects",
+      "Final project",
+      "Certificate"
+    ],
+    "popular": true
+  },
+  {
+    "id": 9,
+    "thumbnail": "/thum-3.jpg",
+    "title": "Starting an E-commerce Business",
+    "rating": 4.6,
+    "instructor": "Sarah Kim",
+    "videos": 45,
+    "hours": 14,
+    "lessons": 18,
+    "lectures": 14,
+    "fees": 69.99,
+    "level": "Intermediate",
+    "category": "Business",
+    "subject": "Business",
+    "language": "English",
+    "class": "Honors",
+    "description": "Learn step-by-step how to start your online store.",
+    "what_you_learn": [
+      "Choose products",
+      "Set up a store",
+      "Marketing and Ads strategy"
+    ],
+    "requirements": [
+      "Internet access",
+      "Small investment for setup"
+    ],
+    "includes": [
+      "14h tutorial",
+      "Shopify/WooCommerce guide",
+      "SEO and Marketing guide",
+      "Certificate"
+    ],
+    "popular": true
+  },
+  {
+    "id": 10,
+    "thumbnail": "/thum-3.jpg",
+    "title": "Robotics for Beginners",
+    "rating": 2.7,
+    "instructor": "Dr. Emily Watson",
+    "videos": 40,
+    "hours": 10,
+    "lessons": 20,
+    "lectures": 18,
+    "fees": 59.00,
+    "level": "Beginner",
+    "category": "Technology",
+    "subject": "Robotics",
+    "language": "English",
+    "class": "8",
+    "description": "Build your first simple robot and learn basic robotics concepts.",
+    "what_you_learn": [
+      "Basic mechanical design",
+      "Sensors and actuators",
+      "Arduino programming"
+    ],
+    "requirements": [
+      "Basic electronics idea",
+      "Arduino kit (recommended)"
+    ],
+    "includes": [
+      "10h tutorial",
+      "Robot building project",
+      "Downloadable codes",
+      "Certificate"
+    ],
+    "popular": true
+  },
+  {
+    "id": 11,
+    "thumbnail": "/thum-3.jpg",
+    "title": "Graphic Design for Beginners",
+    "rating": 3.8,
+    "instructor": "Arif Hossain",
+    "videos": 35,
+    "hours": 9,
+    "lessons": 16,
+    "lectures": 12,
+    "fees": 44.00,
+    "level": "Beginner",
+    "category": "Technology",
+    "subject": "Graphic Design",
+    "language": "Bangla",
+    "class": "Honors",
+    "description": "Learn design principles and create your first professional designs.",
+    "what_you_learn": [
+      "Use Photoshop and Illustrator",
+      "Create logos, posters",
+      "Build your portfolio"
+    ],
+    "requirements": [
+      "Basic computer operation",
+      "Creative mindset"
+    ],
+    "includes": [
+      "9h video tutorials",
+      "Project files",
+      "Portfolio building tips",
+      "Certificate"
+    ],
+    "popular": false
+  },
+  {
+    "id": 12,
+    "thumbnail": "/thum-3.jpg",
+    "title": "Basics of Environmental Science",
+    "rating": 4.5,
+    "instructor": "Ms. Nushrat Nawar",
+    "videos": 30,
+    "hours": 7,
+    "lessons": 14,
+    "lectures": 10,
+    "fees": 35.00,
+    "level": "Beginner",
+    "category": "Academic",
+    "subject": "Environmental Science",
+    "language": "English",
+    "class": "11-12",
+    "description": "Understand the environment and learn how to protect it.",
+    "what_you_learn": [
+      "Ecosystem and biodiversity",
+      "Pollution control methods",
+      "Climate change impacts"
+    ],
+    "requirements": [
+      "Basic science background",
+      "Interest in nature and environment"
+    ],
+    "includes": [
+      "7h video content",
+      "Project assignments",
+      "Final quiz",
+      "Certificate"
+    ],
+    "popular": false
+  }
+]

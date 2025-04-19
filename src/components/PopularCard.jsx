@@ -4,12 +4,12 @@ import { FaRegCirclePlay } from "react-icons/fa6";
 import { IoDocumentOutline } from "react-icons/io5";
 import { MdArrowRightAlt } from "react-icons/md";
 
-const Card = ({ image, title, details, videos, hours, lessons, fees, rating }) => {
+const PopularCard = ({ thumbnail, title, description, videos, hours, lessons, fees, rating, layout }) => {
 
-  const [newRating, setNewRating] = useState(rating)
+  const [newRating, setNewRating] = useState(Math.round(rating));
     return (
-        <div className="max-w-sm rounded-2xl shadow-lg bg-white p-4 dark:bg-black">
-        <img src={image} alt={title} className="w-full h-40 object-cover rounded-lg" />
+        <div className={layout==='grid' ? "max-w-sm rounded-2xl shadow-lg bg-white p-4 dark:bg-black" : ''}>
+        <img src={thumbnail} alt={title} className="w-full h-40 object-cover rounded-lg" />
         <div className="mt-4">
           <div className="flex items-center gap-3 text-lg text-sky-500">
           <div className="rating rating-xs gap-2">
@@ -30,7 +30,7 @@ const Card = ({ image, title, details, videos, hours, lessons, fees, rating }) =
           </div>
           
           <h2 className="text-2xl font-semibold truncate mt-2 min-h-[2.5em]">{title}</h2>
-          <p className="text-gray-500 dark:text-gray-400 text-sm line-clamp-2 min-h-[2.5em] mb-5">{details}</p>
+          <p className="text-gray-500 dark:text-gray-400 text-sm line-clamp-2 min-h-[2.5em] mb-5 trunc">{description}</p>
           <div className="flex justify-between items-center mt-3 text-base">
             <div className="flex gap-2 items-center">
             <FaRegCirclePlay className="text-2xl text-sky-500"/>
@@ -60,4 +60,4 @@ const Card = ({ image, title, details, videos, hours, lessons, fees, rating }) =
     );
 };
 
-export default Card;
+export default PopularCard;

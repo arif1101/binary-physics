@@ -36,7 +36,7 @@ const Navbar = () => {
 
   const links = <>
     <NavLink to='/' className={({ isActive }) => `${isActive ? 'border-b-2 border-sky-600 text-sky-500' : ''}`}><li>Home</li></NavLink>
-    <NavLink><li>Courses</li></NavLink>
+    <NavLink to='/courses' className={({isActive}) => `${isActive ? 'border-b-2 border-sky-600 text-sky-500' : ''} `}><li>Courses</li></NavLink>
     <NavLink><li>Books</li></NavLink>
     <NavLink><li>Exams</li></NavLink>
     <NavLink><li>Forum</li></NavLink>
@@ -45,7 +45,7 @@ const Navbar = () => {
   </>;
 
   return (
-    <div className="w-screen shadow max-h-[76px] fixed top-0 left-0 z-50">
+    <div className="w-screen shadow max-h-[76px] fixed top-0 left-0 z-50 bg-sky-200 bg-opacity-80">
       <div className="navbar max-w-[1256px] h-full mx-auto">
         <div className="navbar-start">
           <div className="dropdown">

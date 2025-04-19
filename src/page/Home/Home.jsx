@@ -4,12 +4,12 @@ import { MdArrowRightAlt } from "react-icons/md";
 import { FaPlay } from "react-icons/fa";
 import FindCourse from './FindCourse';
 import PopularTopics from './PopularTopics';
-import Courses from '../../components/Courses';
 import Mentors from './Mentors';
 import LearningResources from './LearningResources';
 import Testimonials from './Testimonials';
 import FeatureSection from './FeatureSection';
 import PopularBooks from './PopularBooks';
+import PopularCourses from './PopularCourses';
 
 
 const Home = () => {
@@ -82,7 +82,7 @@ const Home = () => {
 
             <PopularTopics></PopularTopics>
 
-            <Courses></Courses>
+            <PopularCourses></PopularCourses>
 
             <Mentors></Mentors>
 
