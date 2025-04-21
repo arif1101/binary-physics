@@ -87,7 +87,7 @@ const CourseCard = ({thumbnail, title, description, videos, hours, lessons, fees
                     <div>
                         <h1>{description}</h1>
                     </div>
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
                     <div className='text-sm flex flex-col gap-2'>
                         <div className='flex justify-between'>
                             <div className='flex items-center gap-1'>

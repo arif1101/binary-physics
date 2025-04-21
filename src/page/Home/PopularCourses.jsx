@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PopularCard from "../../components/PopularCard";
+import { Link } from "react-router-dom";
 
 const PopularCourses = () => {
     const [courses, setCourses] = useState([]);
@@ -41,9 +42,11 @@ const PopularCourses = () => {
             </div>
   
             {/* More Courses Button */}
+            <Link to='/courses'>
             <button className="px-4 py-2 bg-sky-500 text-white rounded-full hover:bg-sky-600 transition-all duration-300">
               More Courses →
             </button>
+            </Link>
           </div>
         </div>
         {/* Courses Grid */}

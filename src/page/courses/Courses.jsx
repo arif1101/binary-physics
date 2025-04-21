@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+
 import { LuLayoutGrid, LuLayoutList } from 'react-icons/lu';
 import CourseCard from '../../components/CourseCard';
 import { BiChevronDown } from 'react-icons/bi';
+import useCourses from '../../useHooks/useCourses';
+import { useState } from 'react';
 
 const Courses = () => {
-  const [courses, setCourses] = useState([]);
+  // const [courses, setCourses] = useState([]);
+  const {courses} = useCourses()
   const [layout, setLayout] = useState("grid");
 
   const [openCategory, setOpenCategory] = useState(true);
@@ -13,12 +16,16 @@ const Courses = () => {
   const [openLanguage, setOpenLanguage] = useState(true);
   const [openClass, setOpenClass] = useState(true);
 
-  useEffect(() => {
-    fetch("/courses.json")
-      .then((response) => response.json())
-      .then((data) => setCourses(data))
-      .catch((error) => console.error("Error fetching courses:", error));
-  }, []);
+  // store by filter 
+  const [selectedCategories, setselectedCategories] = useState([])
+
+  const handleCategoryChange = (category) => {
+    setselectedCategories(prev => 
+      prev.includes(category) ? prev.filter(c => c!==category) : [...prev, category]
+    )
+  }
+
+  const filteredCourses = selectedCategories?.length === 0 ? courses || [] : (courses || []).filter(course => selectedCategories.includes(course.category))
 
   return (
     <div className="drawer lg:drawer-open pt-6 mt-[76px] ">
@@ -30,7 +37,7 @@ const Courses = () => {
         {/* Top bar with Layout and Filter button */}
         <div className="flex justify-between">
           {/* Layout Switcher */}
-          <div className="flex">
+          <div className="flex justify-between w-full">
             <div className="flex">
               <div
                 onClick={() => setLayout('grid')}
@@ -45,6 +52,11 @@ const Courses = () => {
                 <LuLayoutList className='text-2xl' />
               </div>
             </div>
+              <select defaultValue="Pick a Framework" className="select select-info outline-none  focus:ring-0 focus:outline-none ">
+              <option disabled={true}>Release Date</option>
+              <option>Release Date (newest first)</option>
+              <option>Release Date (oldest first)</option>
+            </select>
           </div>
 
           {/* Filter Button (mobile only) */}
@@ -55,8 +67,8 @@ const Courses = () => {
 
         {/* Courses Grid/List */}
         <div className={layout === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' : 'flex flex-col gap-6'}>
-          {courses.length > 0 ? (
-            courses.map((course) => <CourseCard key={course.id} {...course} layout={layout} />)
+          {filteredCourses.length > 0 ? (
+            filteredCourses.map((course) => <CourseCard key={course.id} {...course} layout={layout} />)
           ) : (
             <p className="col-span-3 text-center text-gray-500">No courses found.</p>
           )}
@@ -64,15 +76,15 @@ const Courses = () => {
       </div>
 
       {/* Drawer Sidebar (Filter Panel) */}
-      <div className="drawer-side  max-w-[290px] w-full  bg-white ml-6">
+      <div className="drawer-side  max-w-[290px] w-full  bg-white ml-6 rounded-xl">
         {/* overlay */}
         <label htmlFor="filter-drawer" className="drawer-overlay"></label>
 
         {/* Sidebar content */}
-        <div className="w-80 bg-white p-4 border rounded-lg min-h-screen">
+        <div className="w-80 bg-white p-4  min-h-screen pr-10">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-bold">Filter</h2>
-            <button className="text-sm mr-6 text-blue-600 hover:underline">
+            <button className="text-sm text-blue-600 hover:underline">
               Clear All
             </button>
           </div>
@@ -85,18 +97,29 @@ const Courses = () => {
               onClick={() => setOpenCategory(!openCategory)}
             >
               <h3 className="font-semibold">Category</h3>
-              <BiChevronDown size={16} className={`transition-transform duration-300 ${openCategory ? "rotate-0" : "-rotate-90"}`} />
+              <BiChevronDown size={26} className={`transition-transform duration-300 ${openCategory ? "rotate-0" : "-rotate-90"}`} />
             </div>
             {openCategory && (
               <div className="flex flex-col gap-2 pl-2">
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" /> Academic
+                  <input 
+                  type="checkbox" 
+                  className="checkbox checkbox-sm"
+                  onChange={() => handleCategoryChange('Academic')}
+                  checked = {selectedCategories.includes('Academic')}
+                   /> Academic
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" /> Technology
+                  <input type="checkbox" className="checkbox checkbox-sm" 
+                    onChange={() => handleCategoryChange('Technology')}
+                    checked = {selectedCategories.includes('Technology')}
+                  /> Technology
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" /> Business
+                  <input type="checkbox" className="checkbox checkbox-sm" 
+                  onChange={() => handleCategoryChange('Business')}
+                  checked = {selectedCategories.includes('Business')}
+                  /> Business
                 </label>
               </div>
             )}
@@ -109,7 +132,7 @@ const Courses = () => {
               onClick={() => setOpenLevel(!openLevel)}
             >
               <h3 className="font-semibold">Level</h3>
-              <BiChevronDown size={16} className={`transition-transform duration-300 ${openLevel ? "rotate-0" : "-rotate-90"}`} />
+              <BiChevronDown size={26} className={`transition-transform duration-300 ${openLevel ? "rotate-0" : "-rotate-90"}`} />
             </div>
             {openLevel && (
               <div className="flex flex-col gap-2 pl-2">
@@ -133,18 +156,15 @@ const Courses = () => {
               onClick={() => setOpenSubject(!openSubject)}
             >
               <h3 className="font-semibold">Subject</h3>
-              <BiChevronDown size={16} className={`transition-transform duration-300 ${openSubject ? "rotate-0" : "-rotate-90"}`} />
+              <BiChevronDown size={26} className={`transition-transform duration-300 ${openSubject ? "rotate-0" : "-rotate-90"}`} />
             </div>
             {openSubject && (
               <div className="flex flex-col gap-2 pl-2">
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" /> Beginner
+                  <input type="checkbox" className="checkbox checkbox-sm" /> Physics
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" /> Intermediate
-                </label>
-                <label className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" /> Advanced
+                  <input type="checkbox" className="checkbox checkbox-sm" /> Chemistry
                 </label>
               </div>
             )}
@@ -157,18 +177,15 @@ const Courses = () => {
               onClick={() => setOpenLanguage(!openLanguage)}
             >
               <h3 className="font-semibold">Language</h3>
-              <BiChevronDown size={16} className={`transition-transform duration-300 ${openLanguage ? "rotate-0" : "-rotate-90"}`} />
+              <BiChevronDown size={26} className={`transition-transform duration-300 ${openLanguage ? "rotate-0" : "-rotate-90"}`} />
             </div>
             {openLanguage && (
               <div className="flex flex-col gap-2 pl-2">
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" /> Beginner
+                  <input type="checkbox" className="checkbox checkbox-sm" /> English
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" /> Intermediate
-                </label>
-                <label className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" /> Advanced
+                  <input type="checkbox" className="checkbox checkbox-sm" /> Bangla
                 </label>
               </div>
             )}
@@ -181,18 +198,15 @@ const Courses = () => {
               onClick={() => setOpenClass(!openClass)}
             >
               <h3 className="font-semibold">Class</h3>
-              <BiChevronDown size={16} className={`transition-transform duration-300 ${openClass ? "rotate-0" : "-rotate-90"}`} />
+              <BiChevronDown size={26} className={`transition-transform duration-300 ${openClass ? "rotate-0" : "-rotate-90"}`} />
             </div>
             {openClass && (
               <div className="flex flex-col gap-2 pl-2">
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" /> Beginner
+                  <input type="checkbox" className="checkbox checkbox-sm" /> class 11-12
                 </label>
                 <label className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" /> Intermediate
-                </label>
-                <label className="flex items-center gap-2">
-                  <input type="checkbox" className="checkbox checkbox-sm" /> Advanced
+                  <input type="checkbox" className="checkbox checkbox-sm" /> versity
                 </label>
               </div>
             )}
