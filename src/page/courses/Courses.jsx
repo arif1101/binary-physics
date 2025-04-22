@@ -2,12 +2,12 @@
 import { LuLayoutGrid, LuLayoutList } from 'react-icons/lu';
 import CourseCard from '../../components/CourseCard';
 import { BiChevronDown } from 'react-icons/bi';
-import useCourses from '../../useHooks/useCourses';
 import { useState } from 'react';
+import useData from '../../useHooks/useData';
 
 const Courses = () => {
   // const [courses, setCourses] = useState([]);
-  const {courses} = useCourses()
+  const {courses} = useData()
   const [layout, setLayout] = useState("grid");
 
   const [openCategory, setOpenCategory] = useState(true);
@@ -17,10 +17,10 @@ const Courses = () => {
   const [openClass, setOpenClass] = useState(true);
 
   // store by filter 
-  const [selectedCategories, setselectedCategories] = useState([])
+  const [selectedCategories, setSelectedCategories] = useState([])
 
   const handleCategoryChange = (category) => {
-    setselectedCategories(prev => 
+    setSelectedCategories(prev => 
       prev.includes(category) ? prev.filter(c => c!==category) : [...prev, category]
     )
   }
@@ -28,7 +28,7 @@ const Courses = () => {
   const filteredCourses = selectedCategories?.length === 0 ? courses || [] : (courses || []).filter(course => selectedCategories.includes(course.category))
 
   return (
-    <div className="drawer lg:drawer-open pt-6 mt-[76px] ">
+    <div className="drawer lg:drawer-open pt-6 mt-[76px]">
       {/* Drawer toggle */}
       <input id="filter-drawer" type="checkbox" className="drawer-toggle" />
 
@@ -76,12 +76,12 @@ const Courses = () => {
       </div>
 
       {/* Drawer Sidebar (Filter Panel) */}
-      <div className="drawer-side  max-w-[290px] w-full  bg-white ml-6 rounded-xl">
+      <div className="drawer-side">
         {/* overlay */}
         <label htmlFor="filter-drawer" className="drawer-overlay"></label>
 
         {/* Sidebar content */}
-        <div className="w-80 bg-white p-4  min-h-screen pr-10">
+        <div className="min-h-screen p-4 bg-white mt-[76px] md:mt-0 w-[290px]">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-lg font-bold">Filter</h2>
             <button className="text-sm text-blue-600 hover:underline">
@@ -192,7 +192,7 @@ const Courses = () => {
           </div>
 
           {/* Class Filter */}
-          <div>
+          <div className='mb-6'>
             <div
               className="flex items-center justify-between mb-2 cursor-pointer"
               onClick={() => setOpenClass(!openClass)}

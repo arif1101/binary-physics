@@ -37,7 +37,7 @@ const Navbar = () => {
   const links = <>
     <NavLink to='/' className={({ isActive }) => `${isActive ? 'border-b-2 border-sky-600 text-sky-500' : ''}`}><li>Home</li></NavLink>
     <NavLink to='/courses' className={({isActive}) => `${isActive ? 'border-b-2 border-sky-600 text-sky-500' : ''} `}><li>Courses</li></NavLink>
-    <NavLink><li>Books</li></NavLink>
+    <NavLink to='/books' className={({isActive}) => `${isActive ? 'border-b-2 border-sky-600 text-sky-500' : ''}`}><li>Books</li></NavLink>
     <NavLink><li>Exams</li></NavLink>
     <NavLink><li>Forum</li></NavLink>
     <NavLink><li>Resources</li></NavLink>
