@@ -5,7 +5,7 @@ const Book = ({ book }) => {
     const [newRating, setNewRating] = useState(rating);
 
     return (
-        <div className="p-4">
+        <div className="">
             <div className="border max-w-[272px] text-white p-2 text-center rounded-lg">
                 <div className='w-[254.4px] h-[192px] bg-slate-200 py-3'>
                 <img src={book.bookImage} alt="" className='h-full w-[106.66px] mx-auto shadow-lg shadow-slate-700' />

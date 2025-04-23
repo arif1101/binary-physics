@@ -16,6 +16,9 @@ const Courses = () => {
   const [openLanguage, setOpenLanguage] = useState(true);
   const [openClass, setOpenClass] = useState(true);
 
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 9;
+
   // store by filter 
   const [selectedCategories, setSelectedCategories] = useState([])
 
@@ -27,15 +30,33 @@ const Courses = () => {
 
   const filteredCourses = selectedCategories?.length === 0 ? courses || [] : (courses || []).filter(course => selectedCategories.includes(course.category))
 
+  const indexOfLastItem = currentPage*itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentCourses = filteredCourses.slice(indexOfFirstItem, indexOfLastItem)
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber)
+    window.scrollTo({top: 0, behavior: 'smooth'})
+  }
+
   return (
-    <div className="drawer lg:drawer-open pt-6 mt-[76px]">
+    <div className='mt-[76px]'>
+      <div className="bg-sky-500 w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw]">
+      <h1 className="w-[1256px] mx-auto text-[28px] sm:text-[32px] md:text-[36px] text-white font-bold py-8">
+          Discover Books
+      </h1>
+      </div>
+    <div className="drawer lg:drawer-open pt-6 ">
       {/* Drawer toggle */}
       <input id="filter-drawer" type="checkbox" className="drawer-toggle" />
 
       {/* Drawer content (Main Content Area) */}
       <div className="drawer-content flex flex-col gap-4 sm:gap-6 lg:gap-10  w-full max-w-[918px] ml-auto">
         {/* Top bar with Layout and Filter button */}
-        <div className="flex justify-between">
+        <div className="flex flex-col justify-between">
+          <div className='mb-4'>
+            <p className='font-semibold text-base'>Showing {filteredCourses?.length} of {filteredCourses?.length}</p>
+          </div>
           {/* Layout Switcher */}
           <div className="flex justify-between w-full">
             <div className="flex">
@@ -68,10 +89,22 @@ const Courses = () => {
         {/* Courses Grid/List */}
         <div className={layout === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' : 'flex flex-col gap-6'}>
           {filteredCourses.length > 0 ? (
-            filteredCourses.map((course) => <CourseCard key={course.id} {...course} layout={layout} />)
+            currentCourses.map((course) => <CourseCard key={course.id} {...course} layout={layout} />)
           ) : (
             <p className="col-span-3 text-center text-gray-500">No courses found.</p>
           )}
+        </div>
+        {/* pagination button  */}
+        <div className="flex justify-center my-4 gap-2">
+            {Array.from({ length: Math.ceil(filteredCourses.length / itemsPerPage) }, (_, index) => (
+                <button
+                    key={index}
+                    onClick={() => handlePageChange(index+1)}
+                    className={`px-3 py-1 border rounded ${currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-white text-black'}`}
+                >
+                    {index + 1}
+                </button>
+            ))}
         </div>
       </div>
 
@@ -214,6 +247,7 @@ const Courses = () => {
 
         </div>
       </div>
+    </div>
     </div>
   );
 };
