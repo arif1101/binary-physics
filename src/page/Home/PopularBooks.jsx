@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { MdArrowRightAlt } from 'react-icons/md';
 import Book from '../../components/Book';
+import useData from '../../useHooks/useData';
 
 const NextArrow = ({ onClick }) => (
     <div className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full cursor-pointer z-10" onClick={onClick}>
@@ -19,14 +20,16 @@ const PrevArrow = ({ onClick }) => (
 );
 
 const PopularBooks = () => {
-    const [books, setBooks] = useState([]);
 
-    useEffect(() => {
-        fetch("/books.json")
-            .then((response) => response.json())
-            .then((data) => setBooks(data))
-            .catch((error) => console.error("Error fetching books:", error));
-    }, []);
+
+    // const [books, setBooks] = useState([]);
+    const {books} = useData()
+    // useEffect(() => {
+    //     fetch("/books.json")
+    //         .then((response) => response.json())
+    //         .then((data) => setBooks(data))
+    //         .catch((error) => console.error("Error fetching books:", error));
+    // }, []);
 
     const settings = {
         infinite: true,

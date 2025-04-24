@@ -6,12 +6,14 @@ import { GiNetworkBars, GiWatch } from 'react-icons/gi';
 import { HiOutlineDocument } from 'react-icons/hi';
 import { IoTimeOutline } from 'react-icons/io5';
 import { TiMediaEject } from 'react-icons/ti';
+import { Link } from 'react-router-dom';
 
-const CourseCard = ({thumbnail, title, description, videos, hours, lessons, fees, rating,instructor, lectures,level, layout }) => {
+const CourseCard = ({_id,thumbnail, title, description, videos, hours, lessons, fees, rating,instructor, lectures,level, layout }) => {
 
     // const [newRating, setNewRating] = useState(Math.round(rating));
     
     return (
+        <Link to={`/courses/${_id}`}>
         <div className={layout === "grid" ? 'max-w-[290px] w-full bg-white rounded-xl' : 'max-w-[918px] w-full shadow bg-white rounded-lg flex'}>
             {
                 layout === 'grid' ? <>
@@ -87,7 +89,6 @@ const CourseCard = ({thumbnail, title, description, videos, hours, lessons, fees
                     <div>
                         <h1>{description}</h1>
                     </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
                     <div className='text-sm flex flex-col gap-2'>
                         <div className='flex justify-between'>
                             <div className='flex items-center gap-1'>
@@ -102,6 +103,7 @@ const CourseCard = ({thumbnail, title, description, videos, hours, lessons, fees
             }
             
         </div>
+        </Link>
     );
 };
 

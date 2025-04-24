@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import PopularCard from "../../components/PopularCard";
 import { Link } from "react-router-dom";
+import useData from "../../useHooks/useData";
 
 const PopularCourses = () => {
-    const [courses, setCourses] = useState([]);
+
+    const {courses} = useData()
+    // const [courses, setCourses] = useState([]);
     const popularCourses = courses.filter(course => course.popular)
 
-    useEffect(() => {
-      fetch("/courses.json")
-        .then((response) => response.json())
-        .then((data) => setCourses(data))
-        .catch((error) => console.error("Error fetching courses:", error));
-    }, []);
+    // useEffect(() => {
+    //   fetch("/courses.json")
+    //     .then((response) => response.json())
+    //     .then((data) => setCourses(data))
+    //     .catch((error) => console.error("Error fetching courses:", error));
+    // }, []);
 
     return (
         <div className="p-6 mt-24 flex flex-col gap-4 sm:gap-6 lg:gap-10">
