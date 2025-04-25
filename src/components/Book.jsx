@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Book = ({ book }) => {
-    const { rating, title, price, copy } = book;
+    const {_id, rating, title, price, copy } = book;
     const [newRating, setNewRating] = useState(rating);
 
     return (
+        <Link to={`/books/${_id}`}>
         <div className="">
             <div className="border max-w-[272px] text-white p-2 text-center rounded-lg">
                 <div className='w-[254.4px] h-[192px] bg-slate-200 py-3'>
@@ -35,6 +37,7 @@ const Book = ({ book }) => {
                 </div>
             </div>
         </div>
+        </Link>
     );
 };
 

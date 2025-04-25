@@ -4,7 +4,6 @@ import CourseCard from '../../components/CourseCard';
 import { BiChevronDown } from 'react-icons/bi';
 import { useState } from 'react';
 import useData from '../../useHooks/useData';
-import { Link } from 'react-router-dom';
 
 const Courses = () => {
   // const [courses, setCourses] = useState([]);

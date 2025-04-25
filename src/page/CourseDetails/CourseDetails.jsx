@@ -36,14 +36,14 @@ const CourseDetails = () => {
         enabled: !!id,
     })
 
-    const { title, description } = course || {};
+    const { title } = course || {};
 
     const handleTab = (tabId) => {
       setActiveTab(tabId);
     };
     
     return (
-        <div className='mt-[76px]'>
+        <div className='mt-[76px] pt-6'>
         {courseDetailsLoading ? (
             <p>Loading...</p>
         ) : error ? (
