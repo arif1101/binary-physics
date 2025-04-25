@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import useAxiosPublic from '../../useHooks/useAxiosPublic';
 import { FiUsers } from 'react-icons/fi';
 import { FaBoxOpen, FaCheckCircle, FaClock, FaPaperPlane, FaPlay, FaPlayCircle, FaRegClock, FaStar, FaVideo } from 'react-icons/fa';
@@ -294,7 +294,9 @@ const CourseDetails = () => {
                         </div>
                         <div className="mt-6">
                             <div className="text-2xl font-semibold mb-6">৳200.00</div>
+                            <Link to='/cart'>
                             <button className="btn bg-sky-500 w-full mb-4">Enroll Now</button>
+                            </Link>
                             <div className="space-y-2 text-base font-semibold text-gray-700">
                                 <div className="flex items-center gap-2">
                                     <MdAccessTime className="w-4 h-4" />
