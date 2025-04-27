@@ -9,7 +9,7 @@ const FindCourse = () => {
                     <h1 className='text-2xl font-bold'>Find Your Course</h1>
                     <p className='text-base'>Suspendisse id ullamcorper leo. Nam consequat arcu a lorem conllis, ultricies tristique elit bibendum. Maesenas fermentum.</p>
                 </div>
-                <form className="w-[551.2px] grid grid-cols-1 md:grid-cols-2 md:gap-3 items-center">
+                <form className="max-w-[551.2px] w-full grid grid-cols-1 md:grid-cols-2 md:gap-3 items-center">
                     <input 
                         type="text" 
                         placeholder="Full Name" 

@@ -9,6 +9,8 @@ import CourseDetails from "../page/CourseDetails/CourseDetails";
 import BookDetails from "../page/BookDetails/BookDetails";
 import PrivateRoute from "./PrivateRoute";
 import Cart from "../page/Cart/Cart";
+import Profile from "../page/Profile/Profile";
+import Dashboard from "../page/Dashboard/Dashboard";
 
 
 const router = createBrowserRouter([
@@ -19,6 +21,10 @@ const router = createBrowserRouter([
         {
             path:"/",
             element: <Home></Home>
+        },
+        {
+          path: "/my-profile",
+          element: <Profile></Profile>
         },
         {
           path:"/courses",
@@ -39,6 +45,10 @@ const router = createBrowserRouter([
         {
           path: '/books/:id',
           element: <BookDetails></BookDetails>
+        },
+        {
+          path: '/dashboard',
+          element: <Dashboard></Dashboard>
         }
 
       ]

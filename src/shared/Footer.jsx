@@ -4,7 +4,7 @@ const Footer = () => {
     return (
       <footer className="text-white py-16 max-w-[1256px] mx-auto">
 
-        <div className="container flex bg-sky-500 px-6 py-8 mb-16 mx-auto rounded-lg gap-6 sm:p-10">
+        <div className="container md:flex bg-sky-500 px-6 py-8 mb-16 mx-auto rounded-lg gap-6 sm:p-10">
         {/* Title Section */}
             <div className="mb-6 my-auto">
             <p className="text-base font-semibold">NO MORE WAITING</p>

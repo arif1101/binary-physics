@@ -2,106 +2,173 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { MdKeyboardArrowRight } from "react-icons/md";
 import AuthContext from '../context/AuthContext';
+import { GrSettingsOption } from 'react-icons/gr';
+import { FiShoppingCart } from 'react-icons/fi';
+import { ImProfile } from 'react-icons/im';
+import { PiBooksLight } from 'react-icons/pi';
+import { FaRegFileVideo } from 'react-icons/fa';
 
 const Navbar = () => {
-    const [theme, setTheme] = useState("light")
-    const {user, logOut} = useContext(AuthContext)
+  const [theme, setTheme] = useState("light");
+  const { user, logOut } = useContext(AuthContext);
 
-    const handleLogout = () => {
-      logOut()
-      .then(()=> {
-
-      })
-      .catch(() => {
-        
-      })
+  const closeDrawer = () => {
+    const drawerCheckbox = document.getElementById('profile-drawer');
+    if (drawerCheckbox) {
+      drawerCheckbox.checked = false;
     }
+  };
 
-    // theme contro 
-    useEffect (() => {
-        const html = document.documentElement;
-        html.setAttribute('data-theme', theme);
-        if(theme === 'dark'){
-            html.classList.add('dark')
-        }
-        else{
-            html.classList.remove('dark')
-        }
-        
-    },[theme])
-    const handleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light')
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        closeDrawer(); // close after logout
+      })
+      .catch(() => {});
+  };
+
+  // Theme control
+  useEffect(() => {
+    const html = document.documentElement;
+    html.setAttribute('data-theme', theme);
+    if (theme === 'dark') {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
     }
-    // end theme contro 
+  }, [theme]);
 
-  const links = <>
-    <NavLink to='/' className={({ isActive }) => `${isActive ? 'border-b-2 border-sky-600 text-sky-500' : ''}`}><li>Home</li></NavLink>
-    <NavLink to='/courses' className={({isActive}) => `${isActive ? 'border-b-2 border-sky-600 text-sky-500' : ''} `}><li>Courses</li></NavLink>
-    <NavLink to='/books' className={({isActive}) => `${isActive ? 'border-b-2 border-sky-600 text-sky-500' : ''}`}><li>Books</li></NavLink>
-    <NavLink><li>Exams</li></NavLink>
-    <NavLink><li>Forum</li></NavLink>
-    <NavLink><li>Resources</li></NavLink>
-    <NavLink><li>Blogs</li></NavLink>
-  </>;
+  const handleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
+  // All navigation links
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "Courses", path: "/courses" },
+    { name: "Books", path: "/books" },
+    { name: "Exams", path: "/exams" },
+    { name: "Forum", path: "/forum" },
+    { name: "Resources", path: "/resources" },
+    { name: "Blogs", path: "/blogs" },
+  ];
+
+  const renderLinks = navLinks.map((link, index) => (
+    <NavLink 
+      key={index}
+      to={link.path}
+      className={({ isActive }) => 
+        `${isActive ? 'border-b-2 border-sky-600 text-sky-500' : ''}`
+      }
+      onClick={closeDrawer}
+    >
+      <li>{link.name}</li>
+    </NavLink>
+  ));
 
   return (
-    <div className="w-screen shadow max-h-[76px] fixed top-0 left-0 z-50 bg-sky-200 bg-opacity-80">
+    <div className="w-screen shadow max-h-[76px] fixed top-0 left-0 z-50  ">
       <div className="navbar max-w-[1256px] h-full mx-auto">
         <div className="navbar-start">
+          {/* Mobile menu */}
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
             </div>
             <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-              {links}
+              {renderLinks}
             </ul>
           </div>
-          <img className='w-[112px] h-[70px] my-auto flex items-center justify-center ' src="/logo.png" alt="Logo" />
+          {/* Logo */}
+          <img className='w-[112px] h-[70px] my-auto flex items-center justify-center' src="/logo.png" alt="Logo" />
         </div>
+
         <div className="navbar-center hidden lg:flex">
-          <ul className="flex text-[14px] text-[F9FAFB] gap-[32px] font-medium ">
-            {links}
+          <ul className="flex text-[14px] dark:text-[#F9FAFB] gap-[32px] font-medium">
+            {renderLinks}
           </ul>
         </div>
+
         <div className="navbar-end flex gap-[16px]">
-          {
-            user ? <>
-                      {/* start profile */}
-          <div className="flex gap-2">
-            <div className="dropdown dropdown-end">
-              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img
-                    alt="Tailwind CSS Navbar component"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+          {user ? (
+            <>
+              {/* Profile drawer */}
+              <div className="drawer drawer-end z-50">
+                <input id="profile-drawer" type="checkbox" className="drawer-toggle" />
+                <div className="flex gap-2 drawer-content justify-end">
+                  <div className="flex items-center gap-2 border py-1 px-2 rounded-full bg-slate-300">
+                    <label htmlFor="profile-drawer" className="btn btn-ghost btn-circle avatar border border-red-700">
+                      <div className="w-10 rounded-full">
+                        <img alt="Profile" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                      </div>
+                    </label>
+                    <div className="font-bold dark:text-black">
+                      <h1>Arifur</h1>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="drawer-side">
+                  <label htmlFor="profile-drawer" className="drawer-overlay"></label>
+                  <div className="menu p-4 w-80 min-h-full bg-base-100 text-base-content">
+                    <div className=''>
+                      <h3 className="text-base font-bold">{user.email}</h3>
+                      <Link to="/my-profile" onClick={closeDrawer}>
+                        <p className="text-xs text-sky-500">View Profile</p>
+                      </Link>
+                    </div>
+                    <div className='mt-4 flex flex-col gap-4'>
+                      <Link to='/dashboard'>
+                        <div onClick={closeDrawer} className='flex items-center gap-4 text-base'>
+                          <GrSettingsOption></GrSettingsOption>
+                          <h3>Dashboard</h3>
+                        </div>
+                      </Link>
+                      <Link>
+                        <div onClick={closeDrawer} className='flex items-center gap-4 text-base'>
+                          <FiShoppingCart></FiShoppingCart>
+                          <NavLink to='/cart'><h3>Cart</h3></NavLink>
+                        </div>
+                      </Link>
+                      <Link to='/my-profile'>
+                        <div onClick={closeDrawer} className='flex items-center gap-4 text-base'>
+                          <ImProfile></ImProfile>
+                          <h3>My Profile</h3>
+                        </div>
+                      </Link>
+                      <Link>
+                          <div onClick={closeDrawer} className='flex items-center gap-4 text-base'>
+                            <FaRegFileVideo></FaRegFileVideo>
+                            <h3>Enrolled Courses</h3>
+                          </div>
+                      </Link>
+                      <Link>
+                        <div onClick={closeDrawer} className='flex items-center gap-4 text-base'>
+                          <PiBooksLight></PiBooksLight>
+                          <h3 className='font-semibold'>Purchase Books</h3>
+                        </div>
+                      </Link>
+                      <NavLink className='text-red-500' onClick={handleLogout}>Logout</NavLink>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
-                </li>
-                <li><a>Settings</a></li>
-                <li><NavLink onClick={handleLogout}>Logout</NavLink></li>
-              </ul>
-            </div>
-          </div>
-          {/* end profile  */}
-            </> : <>
-            <Link to='/login'>
-              <div className="w-[84.74px] h-[32px] bg-sky-500 flex hover:bg-sky-600 cursor-pointer text-white font-medium items-center justify-center rounded-full pl-2 ">
-                <p>Login</p>
-                <MdKeyboardArrowRight className='text-xl' />
-              </div>
-            </Link>
             </>
-          }
-          
+          ) : (
+            <>
+              {/* Login button */}
+              <Link to="/login">
+                <div className="w-[84.74px] h-[32px] bg-sky-500 flex hover:bg-sky-600 cursor-pointer text-white font-medium items-center justify-center rounded-full pl-2">
+                  <p>Login</p>
+                  <MdKeyboardArrowRight className="text-xl" />
+                </div>
+              </Link>
+            </>
+          )}
 
+          {/* Theme toggle */}
           <label className="swap swap-rotate  rounded-full p-1">
             {/* This hidden checkbox controls the theme */}
             <input 
